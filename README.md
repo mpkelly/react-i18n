@@ -14,15 +14,13 @@ TODO
 
 - [x] Tiny bundle size - ???kb gzipped
 - [x] Clean code. No special components that take over your code base.
-- [x] Hierarchical with support for dynamic imports with code splitting
+- [x] Hierarchical with support for dynamic imports and code splitting
 - [x] Extensible/customizable Markdown support: converts text values into `ReactNode` array.
 - [x] Supports dates, currencies and pluralization via native `Intl` package
 - [x] Extend your design system components easily using `withI18N()` HOC.
 - [x] Includes React hook `useI18N`.
 - [ ] Docs
 - [ ] Tests
-
-I wrote this for [Journal](https://github.com/mpkelly/Journal), another side-project of mine, and didn't need to drop a precise locations but may add this in future.
 
 ### Quick Start
 
