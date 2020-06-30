@@ -1,0 +1,72 @@
+{
+  "name": "@mpkelly/react-i18n",
+  "version": "0.0.1",
+  "description": "Lightwieght internationalization for React",
+  "keywords": [
+    "react",
+    "typescript",
+    "i18n",
+    "internationalization",
+    "localization"
+  ],
+  "author": "mkelly <kikemelly@gmail.com>",
+  "homepage": "https://github.com/mpkelly/react-i18n",
+  "readme": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpkelly/react-i18n.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mpkelly/react-i18n/issues"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/Index.d.ts",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-transform-async-to-generator": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/runtime": "^7.9.6",
+    "@types/jest": "^25.2.3",
+    "@types/mocha": "^7.0.2",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^3.4.0",
+    "@typescript-eslint/parser": "^3.4.0",
+    "awesome-typescript-loader": "^5.2.1",
+    "clean-webpack-plugin": "*",
+    "eslint": "^7.3.1",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.4",
+    "jest": "^26.0.1",
+    "react": "^16.13.1",
+    "source-map-loader": "^0.2.4",
+    "terser-webpack-plugin": "^2.3.6",
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.9.2",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-glob": "^2.0.2"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "scripts": {
+    "lint": "eslint src/**",
+    "test": "jest",
+    "watch": "webpack -w --mode=development",
+    "typings": "tsc -d --emitDeclarationOnly --allowJs false --esModuleInterop true --skipLibCheck true --jsx react --outDir ./dist src/Index.ts",
+    "dist": "webpack --mode=production && npm run typings",
+    "publishlib": "npm run dist && npm run lint && npm run test && npx lerna publish"
+  },
+  "eslintIgnore": [
+    "*.jest.ts"
+  ],
+  "gitHead": "bcb9141f564feca6faad81c1641f89372ef9924d"
+}
