@@ -34,7 +34,7 @@ export function withI18N<T>(Component: FC<T>, propName: string): FC<T> {
     if (bundle && props[propName]) {
       const value = props[propName];
       let children: ReactNode | ReactNode[] = "";
-      if (value.constructor == Array) {
+      if (value.constructor === Array) {
         const [label, ...args] = value;
         if (bundle[label]) {
           children = (bundle[label] as Function)(...args);
@@ -42,7 +42,8 @@ export function withI18N<T>(Component: FC<T>, propName: string): FC<T> {
       } else {
         children = bundle[value] as string;
         if (!children) {
-          console.warn("No i18n value found for key: " + value);
+          // eslint-disable-next-line no-console
+          console.warn(`No i18n value found for key: ${value}`);
         }
       }
       if (children) {
