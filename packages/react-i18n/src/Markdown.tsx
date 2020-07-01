@@ -92,7 +92,8 @@ export const InlineCodeRule: MarkdownRule = {
 };
 
 export const LinkRule: MarkdownRule = {
-  pattern: /\[([^[]+)\](([^)]+))/,
+  // eslint-disable-next-line no-useless-escape
+  pattern: /\[([^\[]+)\]\(([^\)]+)\)/,
   onMatch: (match) => <a href={match[2]}>{match[1]}</a>
 };
 

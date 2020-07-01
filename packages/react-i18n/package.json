@@ -66,7 +66,7 @@
     "publishlib": "npm run dist && npm run lint && npm run test && npx lerna publish"
   },
   "eslintIgnore": [
-    "*.jest.ts"
+    "*.test.ts"
   ],
   "gitHead": "bcb9141f564feca6faad81c1641f89372ef9924d"
 }
