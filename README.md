@@ -12,7 +12,7 @@ TODO
 
 ### Features
 
-- [x] Tiny bundle size - ???kb gzipped
+- [x] Tiny bundle size - 2.1kb gzipped
 - [x] Clean code. No special components that take over your code base.
 - [x] Hierarchical with support for dynamic imports and code splitting
 - [x] Extensible/customizable Markdown support: converts text values into `ReactNode` array.
