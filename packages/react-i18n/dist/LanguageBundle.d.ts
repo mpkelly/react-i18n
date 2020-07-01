@@ -4,4 +4,3 @@ export declare type LanguageBundleValue = ReactNode | LanguageBundleFunctionValu
 export declare type LanguageBundle = {
     [key: string]: LanguageBundleValue;
 };
-export declare const importBundle: (path: string, moduleName?: string) => Promise<LanguageBundle>;

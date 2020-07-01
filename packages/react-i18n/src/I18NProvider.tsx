@@ -132,3 +132,7 @@ export const I18NProvider: FC<I18NProviderProps> = (
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
 };
+
+I18NProvider.defaultProps = {
+  markdownRules: DefaultMarkdownRules
+};
