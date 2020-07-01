@@ -1,5 +1,7 @@
-export type LanguageBundleFunctionValue = (...args: any[]) => string;
-export type LanguageBundleValue = string | LanguageBundleFunctionValue;
+import { ReactNode } from "react";
+
+export type LanguageBundleFunctionValue = (...args: any[]) => ReactNode;
+export type LanguageBundleValue = ReactNode | LanguageBundleFunctionValue;
 
 export type LanguageBundle = {
   [key: string]: LanguageBundleValue;
