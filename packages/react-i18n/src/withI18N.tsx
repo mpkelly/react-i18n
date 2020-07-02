@@ -1,4 +1,5 @@
-import React, { forwardRef, FC, ReactNode } from "react";
+import * as React from "react";
+import { forwardRef, FC, ReactNode } from "react";
 import { useI18N } from "./I18NProvider";
 import { transform } from "./Markdown";
 

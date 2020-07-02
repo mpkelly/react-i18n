@@ -1,4 +1,5 @@
-import React, { FC } from "react";
+import * as React from "react";
+import { FC } from "react";
 /**
  * Add i18n support to the specified component. This HOC allow you declare
  * a property on your component which refernces a key on the `LanguageBundle` currently

@@ -10,12 +10,7 @@
     "experimentalDecorators": true,
     "skipLibCheck": true,
     "jsx": "react",
-    "typeRoots": ["./node_modules/@types"],
-    "plugins": [
-      {
-        "name": "typescript-styled-plugin"
-      }
-    ]
+    "typeRoots": ["./node_modules/@types"]
   },
   "awesomeTypescriptLoaderOptions": {
     "useBabel": true,
@@ -24,5 +19,5 @@
   },
   "exclude": ["node_modules"],
   "outDir": "./dist",
-  "include": ["./src/**/*", "src/Tree.tsx", "test/TreeElementState.ts"]
+  "include": ["./src/**/*"]
 }

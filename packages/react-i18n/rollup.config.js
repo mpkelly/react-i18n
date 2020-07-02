@@ -1,6 +1,5 @@
 import path from "path";
 import { terser } from "rollup-plugin-terser";
-import babel from "rollup-plugin-babel";
 import typescript from "rollup-plugin-typescript2";
 
 export default [
@@ -21,16 +20,12 @@ export default [
         format: "iife"
       }
     ],
-    external: ["react", "react-dom"],
+    external: ["react"],
     globals: {
-      react: "React",
-      "react-dom": "ReactDOM"
+      react: "React"
     },
     plugins: [
       typescript(),
-      babel({
-        presets: ["react"]
-      }),
       terser({
         toplevel: true,
         compress: {

@@ -14,6 +14,10 @@ var config = {
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
+    alias: {
+      react: path.resolve(__dirname, "node_modules/react"),
+      "react-dom": path.resolve(__dirname, "node_modules/react-dom"),
+    },
   },
   optimization: {
     minimize: true,
@@ -37,10 +41,10 @@ var config = {
       cleanOnceBeforeBuildPatterns: ["**/bundle*.*js"],
     }),
   ],
-  externals: {
-    react: "React",
-    "react-dom": "ReactDOM",
-  },
+  // externals: {
+  //   react: "React",
+  //   "react-dom": "ReactDOM",
+  // },
 };
 
 module.exports = (env, argv) => {

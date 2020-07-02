@@ -7,7 +7,7 @@ import { Text } from "./Text";
 
 export default function App() {
   const [lang, setLang] = useState("en");
-  setTimeout(() => setLang("de"), 5000);
+  setTimeout(() => setLang("de"), 2000);
   return (
     <I18NProvider lang={lang} bundles={RootBundle}>
       <Root />
