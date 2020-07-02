@@ -1,6 +1,6 @@
 {
   "name": "react-i18n",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": true,
   "description": "Examples for @mpkelly/react-i18n",
   "keywords": [
@@ -35,7 +35,7 @@
     "webpack-glob": "^2.0.2"
   },
   "dependencies": {
-    "@mpkelly/react-i18n": "^0.0.4",
+    "@mpkelly/react-i18n": "^0.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
