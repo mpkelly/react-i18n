@@ -1,8 +1,8 @@
-![Bundle size 1.5kb](https://badgen.net/bundlephobia/minzip/@mpkelly/react-i18n)
-
 # react-i18n
 
 An tiny, I18N library for React JS. It makes use of the `Context API` to support a hierarchy of language bundles (each of which can be loaded on demand) and the native `Intl` package to provide some formatting utilities for common things like dates and currencies. You can include anything else as and when you need it.
+
+[Compare on Bundlephobia](https://bundlephobia.com/result?p=@mpkelly/react-i18n@0.0.4)
 
 ### Install
 
@@ -10,11 +10,11 @@ An tiny, I18N library for React JS. It makes use of the `Context API` to support
 
 ### Demos
 
-TODO
+- [Code splitting / general demo](https://codesandbox.io/s/loving-buck-jo6p6?file=/src/index.tsx)
 
 ### Features
 
-- [x] Tiny bundle - 1.5KB gzipped
+- [x] Tiny bundle - 1.5kB gzipped
 - [x] Clean code. No special components that take over your code base.
 - [x] Hierarchical with support for dynamic imports and code splitting
 - [x] Extensible/customizable Markdown support: converts text values into `ReactNode` array.
