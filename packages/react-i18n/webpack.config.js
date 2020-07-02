@@ -1,21 +1,22 @@
 const TerserPlugin = require("terser-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const EsmWebpackPlugin = require("@purtuga/esm-webpack-plugin");
 
 var path = require("path");
 
 var config = {
   entry: {
-    app: "./src/Index.ts",
+    app: "./src/Index.ts"
   },
   output: {
     path: path.join(__dirname, "dist"),
     filename: "index.js",
     publicPath: "./dist",
     libraryTarget: "umd",
-    umdNamedDefine: true,
+    umdNamedDefine: true
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"]
   },
   optimization: {
     minimize: true,
@@ -25,19 +26,19 @@ var config = {
         terserOptions: {
           ecma: 6,
           output: {
-            ascii_only: true,
-          },
-        },
-      }),
-    ],
+            ascii_only: true
+          }
+        }
+      })
+    ]
   },
   module: {
-    rules: [{ test: /\.tsx?$/, loader: "awesome-typescript-loader" }],
+    rules: [{ test: /\.tsx?$/, loader: "awesome-typescript-loader" }]
   },
   plugins: [
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ["**/bundle*.*js"],
-    }),
+      cleanOnceBeforeBuildPatterns: ["**/bundle*.*js"]
+    })
   ],
   externals: {
     react: {
@@ -45,21 +46,27 @@ var config = {
       commonjs2: "react",
       amd: "react",
       root: "React",
-      umd: "react",
+      umd: "react"
     },
     "react-dom": {
       commonjs: "react-dom",
       commonjs2: "react-dom",
       amd: "react-dom",
       root: "ReactDOM",
-      umd: "react-dom",
-    },
-  },
+      umd: "react-dom"
+    }
+  }
 };
 
 module.exports = (env, argv) => {
+  console.log(argv);
   if (argv.mode === "development") {
     config.devtool = "eval";
   }
+  // if (argv.output === "esm") {
+  //   config.output = esm;
+  // } else {
+  //   config.output = umd;
+  // }
   return config;
 };

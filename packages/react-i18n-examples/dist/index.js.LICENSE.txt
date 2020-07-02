@@ -1,3 +1,5 @@
+/*! exports provided: BoldRule, DefaultMarkdownRules, I18NProvider, InlineCodeRule, ItalicRule, LinkRule, StrikethroughRule, findRegex, formatCurrency, formatDate, pluralize, transform, useI18N, withI18N */
+
 /*! no static exports found */
 
 /*!**********************!*\
@@ -24,6 +26,6 @@
   !*** ./src/NestedBundle.ts ***!
   \*****************************/
 
-/*!***********************************!*\
-  !*** ../react-i18n/dist/index.js ***!
-  \***********************************/
+/*!**************************************!*\
+  !*** ../react-i18n/dist/index.es.js ***!
+  \**************************************/

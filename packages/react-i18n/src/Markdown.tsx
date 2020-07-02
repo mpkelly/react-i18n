@@ -31,7 +31,7 @@ export const transform = (text: string, rules: MarkdownRule[]): ReactNode[] => {
   const result: ReactNode[] = [];
   const matches: { match: RegexMatch; rule: MarkdownRule }[] = [];
   let currentText = text;
-  // First pass: find matches and positions while blaking out
+  // First pass: find matches and positions while blanking out
   // matched areas to avoid duplicates.
   rules.forEach((rule) => {
     findRegex(rule.pattern, currentText).forEach((match) => {
@@ -48,8 +48,8 @@ export const transform = (text: string, rules: MarkdownRule[]): ReactNode[] => {
   }
   currentText = text;
   let currentStart = 0;
-  // Second pass: rebuild the content as an arrray weaving JSX components
-  // in among raw text while maintaining the positions of the original
+  // Second pass: rebuild the content as an array, weaving JSX components
+  // in amongst raw text while maintaining the positions of the original
   // markdown string.
   matches.sort(sortByOffset).forEach((match, index) => {
     const [start, end] = match.match.offsets;

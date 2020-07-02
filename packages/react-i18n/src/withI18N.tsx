@@ -27,12 +27,12 @@ import { transform } from "./Markdown";
  * @param propName the name of the property which can contain the key which maps
  * to the I18N bundle
  */
-export function withI18N<T>(Component: FC<T>, propName: string): FC<T> {
-  return forwardRef((props: any, ref) => {
+export function withI18N<T>(Component: FC<T>, propName: keyof T) {
+  return forwardRef<HTMLElement, T>((props, ref) => {
     const { bundle, markdownRules } = useI18N();
     let hocProps = props;
     if (bundle && props[propName]) {
-      const value = props[propName];
+      const value = props[propName] as any;
       let children: ReactNode | ReactNode[] = "";
       if (value.constructor === Array) {
         const [label, ...args] = value;

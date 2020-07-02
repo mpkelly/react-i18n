@@ -4,7 +4,7 @@
     "allowJs": false,
     "strict": true,
     "noImplicitAny": true,
-    "module": "commonjs",
+    "module": "ESNext",
     "target": "es2017",
     "esModuleInterop": true,
     "experimentalDecorators": true,

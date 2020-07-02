@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import ReactDOM from "react-dom";
 import { I18NProvider, useI18N } from "@mpkelly/react-i18n";
 import { RootBundle } from "./RootBundle";
@@ -6,8 +6,10 @@ import NestedBundle from "./NestedBundle";
 import { Text } from "./Text";
 
 export default function App() {
+  const [lang, setLang] = useState("en");
+  setTimeout(() => setLang("de"), 5000);
   return (
-    <I18NProvider lang={"en"} bundles={RootBundle}>
+    <I18NProvider lang={lang} bundles={RootBundle}>
       <Root />
     </I18NProvider>
   );
@@ -27,7 +29,7 @@ const Root = () => {
 
 const Sub = () => {
   return (
-    <I18NProvider bundles={NestedBundle} lang="de">
+    <I18NProvider bundles={NestedBundle}>
       <h2>Sub Component</h2>
       <SubComponent />
     </I18NProvider>

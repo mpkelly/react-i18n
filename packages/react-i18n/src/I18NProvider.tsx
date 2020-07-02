@@ -84,6 +84,10 @@ export const I18NProvider: FC<I18NProviderProps> = (
     throw new Error("No `lang` prop specified");
   }
 
+  useEffect(() => {
+    setBundle(undefined);
+  }, [props.lang]);
+
   const resolveLanguageBundle = useCallback(
     (lang: string) =>
       Promise.all([
