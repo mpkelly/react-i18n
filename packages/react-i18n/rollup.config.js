@@ -1,5 +1,6 @@
 import path from "path";
 import { terser } from "rollup-plugin-terser";
+import babel from "rollup-plugin-babel";
 import typescript from "rollup-plugin-typescript2";
 
 export default [
@@ -14,11 +15,22 @@ export default [
       {
         file: path.resolve(__dirname, "dist/index.es.js"),
         format: "es"
+      },
+      {
+        file: path.resolve(__dirname, "dist/index.js"),
+        format: "iife"
       }
     ],
-    external: ["react", "react-dom/server", "@eo-locale/core"],
+    external: ["react", "react-dom"],
+    globals: {
+      react: "React",
+      "react-dom": "ReactDOM"
+    },
     plugins: [
       typescript(),
+      babel({
+        presets: ["react"]
+      }),
       terser({
         toplevel: true,
         compress: {

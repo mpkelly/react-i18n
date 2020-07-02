@@ -20,7 +20,8 @@
     "url": "https://github.com/mpkelly/react-i18n/issues"
   },
   "license": "MIT",
-  "main": "dist/index.umd.js",
+  "main": "dist/index.js",
+  "umd": "dist/index.umd.js",
   "module": "dist/index.es.js",
   "typings": "dist/Index.d.ts",
   "devDependencies": {
@@ -49,6 +50,7 @@
     "jest": "^26.0.1",
     "react": "^16.13.1",
     "rollup": "^2.18.2",
+    "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-terser": "^6.1.0",
     "rollup-plugin-typescript2": "^0.27.1",
     "source-map-loader": "^0.2.4",
