@@ -86,7 +86,7 @@ export const I18NProvider: FC<I18NProviderProps> = (
 
   useEffect(() => {
     setBundle(undefined);
-  }, [props.lang]);
+  }, [currentLang]);
 
   const resolveLanguageBundle = useCallback(
     (lang: string) =>
