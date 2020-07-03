@@ -1,5 +1,4 @@
-import * as React from "react";
-import { forwardRef, FC, ReactNode } from "react";
+import React, { forwardRef, FC, ReactNode } from "react";
 import { useI18N } from "./I18NProvider";
 import { transform } from "./Markdown";
 
@@ -52,6 +51,7 @@ export function withI18N<T>(Component: FC<T>, propName: keyof T) {
         hocProps = { ...props, children };
       }
     }
+    console.log(React, "Here");
     return <Component {...hocProps} ref={ref} />;
   });
 }

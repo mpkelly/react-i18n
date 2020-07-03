@@ -1,5 +1,4 @@
-import * as React from "react";
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 export type MarkdownRule = {
   pattern: RegExp;
@@ -102,6 +101,6 @@ export const DefaultMarkdownRules = [
   BoldRule,
   ItalicRule,
   InlineCodeRule,
-  LinkRule,
-  StrikethroughRule
+  StrikethroughRule,
+  LinkRule
 ];

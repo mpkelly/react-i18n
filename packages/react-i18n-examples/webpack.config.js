@@ -41,10 +41,10 @@ var config = {
       cleanOnceBeforeBuildPatterns: ["**/bundle*.*js"],
     }),
   ],
-  // externals: {
-  //   react: "React",
-  //   "react-dom": "ReactDOM",
-  // },
+  externals: {
+    react: "React",
+    "react-dom": "ReactDOM",
+  },
 };
 
 module.exports = (env, argv) => {
