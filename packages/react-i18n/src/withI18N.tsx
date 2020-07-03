@@ -48,10 +48,10 @@ export function withI18N<T>(Component: FC<T>, propName: keyof T) {
       }
       if (children) {
         children = transform(children as string, markdownRules);
+        console.log("C", children);
         hocProps = { ...props, children };
       }
     }
-    console.log(React, "Here");
     return <Component {...hocProps} ref={ref} />;
   });
 }

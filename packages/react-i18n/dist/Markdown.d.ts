@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 export declare type MarkdownRule = {
     pattern: RegExp;
-    onMatch(match: RegExpMatchArray): ReactNode;
+    onMatch(match: RegExpMatchArray, key?: any): ReactNode;
 };
 export declare const findRegex: (search: RegExp, text: string) => RegexMatch[];
 export declare const transform: (text: string, rules: MarkdownRule[]) => ReactNode[];

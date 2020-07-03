@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 
 export type MarkdownRule = {
   pattern: RegExp;
-  onMatch(match: RegExpMatchArray): ReactNode;
+  onMatch(match: RegExpMatchArray, key?: any): ReactNode;
 };
 
 export const findRegex = (search: RegExp, text: string) => {
@@ -57,7 +57,7 @@ export const transform = (text: string, rules: MarkdownRule[]): ReactNode[] => {
     if (before) {
       result.push(before);
     }
-    result.push(match.rule.onMatch(match.match.array));
+    result.push(match.rule.onMatch(match.match.array, index));
     currentStart = end;
     if (index + 1 === matches.length) {
       const after = currentText.substring(currentStart);
@@ -73,28 +73,32 @@ type RegexMatch = { offsets: number[]; array: RegExpMatchArray };
 
 export const BoldRule: MarkdownRule = {
   pattern: /(\*\*|__)(.*?)\1/,
-  onMatch: (match) => <strong>{match[2]}</strong>
+  onMatch: (match, key) => <strong key={key}>{match[2]}</strong>
 };
 
 export const ItalicRule: MarkdownRule = {
   pattern: /(\*|_)(.*?)\1/,
-  onMatch: (match) => <em>{match[2]}</em>
+  onMatch: (match, key) => <em key={key}>{match[2]}</em>
 };
 
 export const StrikethroughRule: MarkdownRule = {
   pattern: /~~(.*?)~~/,
-  onMatch: (match) => <del>{match[1]}</del>
+  onMatch: (match, key) => <del key={key}>{match[1]}</del>
 };
 
 export const InlineCodeRule: MarkdownRule = {
   pattern: /`(.*?)`/,
-  onMatch: (match) => <code>{match[1]}</code>
+  onMatch: (match, key) => <code key={key}>{match[1]}</code>
 };
 
 export const LinkRule: MarkdownRule = {
   // eslint-disable-next-line no-useless-escape
   pattern: /\[([^\[]+)\]\(([^\)]+)\)/,
-  onMatch: (match) => <a href={match[2]}>{match[1]}</a>
+  onMatch: (match, key) => (
+    <a key={key} href={match[2]}>
+      {match[1]}
+    </a>
+  )
 };
 
 export const DefaultMarkdownRules = [
