@@ -8,8 +8,8 @@ export const LanguageSelect = (props: Props) => {
   const { onChangeLanguage } = props;
   return (
     <select onChange={onChangeLanguage}>
-      <option>Lorem</option>
       <option>Corporate</option>
+      <option>Lorem</option>
     </select>
   );
 };
