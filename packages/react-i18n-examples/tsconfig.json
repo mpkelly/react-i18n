@@ -6,8 +6,6 @@
     "noImplicitAny": true,
     "module": "CommonJS",
     "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true,
-    "composite": true,
     "esModuleInterop": true,
     "target": "es2017",
     "experimentalDecorators": true,

@@ -59,14 +59,8 @@ var config = {
 };
 
 module.exports = (env, argv) => {
-  console.log(argv);
   if (argv.mode === "development") {
     config.devtool = "eval";
   }
-  // if (argv.output === "esm") {
-  //   config.output = esm;
-  // } else {
-  //   config.output = umd;
-  // }
   return config;
 };
