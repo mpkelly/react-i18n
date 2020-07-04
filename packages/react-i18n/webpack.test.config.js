@@ -5,15 +5,15 @@ var path = require("path");
 
 var config = {
   entry: {
-    app: "./test/Index.tsx",
+    app: "./test/Index.tsx"
   },
   output: {
     path: path.join(__dirname, "test"),
-    filename: "index.js",
-    publicPath: "./test",
+    filename: "[name].bundle.js",
+    chunkFilename: "[name].bundle.js"
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"]
   },
   optimization: {
     minimize: true,
@@ -23,19 +23,19 @@ var config = {
         terserOptions: {
           ecma: 6,
           output: {
-            ascii_only: true,
-          },
-        },
-      }),
-    ],
+            ascii_only: true
+          }
+        }
+      })
+    ]
   },
   module: {
-    rules: [{ test: /\.tsx?$/, loader: "awesome-typescript-loader" }],
+    rules: [{ test: /\.tsx?$/, loader: "awesome-typescript-loader" }]
   },
   externals: {
     react: "React",
-    "react-dom": "ReactDOM",
-  },
+    "react-dom": "ReactDOM"
+  }
 };
 
 module.exports = (env, argv) => {

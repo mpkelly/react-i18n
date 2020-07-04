@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{6:function(e,a,t){"use strict";t.r(a);var n=t(0),r=t.n(n),l=t(3),o=t(1);const s={a:()=>Promise.resolve({2:"a2 override",3:"a3"}),b:()=>Promise.resolve({3:"b3"})};a.default=()=>r.a.createElement(o.a,{bundles:s},r.a.createElement(l.a,{label:"2",id:"t2"}),r.a.createElement(l.a,{label:"3",id:"t3"}))}}]);

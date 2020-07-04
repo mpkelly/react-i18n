@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{7:function(e,a,n){"use strict";n.r(a);var s=n(0),o=n.n(s),t=n(3),r=n(1);const l={a:()=>Promise.resolve({4:"a4"}),b:()=>Promise.resolve({4:"b4"})};a.default=()=>o.a.createElement(r.a,{bundles:l},o.a.createElement(t.a,{label:"4",id:"t4"}))}}]);
