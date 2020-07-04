@@ -4,7 +4,7 @@ An tiny, i18n library for React JS. It makes use of the `Context` API to support
 
 A tiny bundle size is nice but makes this library also makes it easy for you to distribute your language text across many files and is setup for code splitting and dynamic imports. This is illustrated by the [exmaple project](https://github.com/mpkelly/react-i18n/tree/master/packages/react-i18n-examples) which is hosted [here](https://mpkelly.github.io/react-i18n). 
 
-[Compare on Bundlephobia](https://bundlephobia.com/result?p=@mpkelly/react-i18n@0.0.4)
+[Compare on Bundlephobia](https://bundlephobia.com/result?p=@mpkelly/react-i18n@0.0.8)
 
 ### Install
 
