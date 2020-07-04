@@ -23,7 +23,7 @@ export const App = () => {
     <I18NProvider lang={lang} bundles={RootLanguageBundle}>
       <Router>
         <Page>
-          <Nav onChangeLanguage={toggleLanguage} />
+          <Nav language={lang} onChangeLanguage={toggleLanguage} />
           <Suspense fallback={<span>Loading...</span>}>
             <Switch>
               <Route exact path={"/home"} component={HomePage} />

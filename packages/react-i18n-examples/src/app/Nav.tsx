@@ -5,11 +5,12 @@ import { Text, Title } from "../components/Text";
 import { LanguageSelect } from "../components/LanguageSelect";
 
 type Props = {
+  language: string;
   onChangeLanguage(): void;
 };
 
 export const Nav = (props: Props) => {
-  const { onChangeLanguage } = props;
+  const { language, onChangeLanguage } = props;
   return (
     <Container>
       <Title label="brand" />
@@ -19,7 +20,7 @@ export const Nav = (props: Props) => {
       <Link to="/about">
         <Text label="about" />
       </Link>
-      <LanguageSelect onChangeLanguage={onChangeLanguage} />
+      <LanguageSelect language={language} onChangeLanguage={onChangeLanguage} />
     </Container>
   );
 };
