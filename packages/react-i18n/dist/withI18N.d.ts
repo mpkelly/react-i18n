@@ -1,27 +1,9 @@
-import React, { FC } from "react";
-/**
- * Add i18n support to the specified component. This HOC allow you declare
- * a property on your component which refernces a key on the `LanguageBundle` currently
- * declared in the closest `I18NProvider`. The key is left down to the caller and should
- * be specified as `propName`.
- *
- * Example:
- *
- * ```
- * <RegularText>Hello</Regular>
- *
- * const I18NText = withI18N(RegularText, "labelFrom")
- *
- * ...
- *
- * <I18NProvider bundles={bundles} lang="en">
- *  <I18NText labelFrom="hello"/>
- * </I18NProvider/>
- *
- *```
- *
- * @param Component the component to wrap
- * @param propName the name of the property which can contain the key which maps
- * to the I18N bundle
- */
-export declare function withI18N<T>(Component: FC<T>, propName: keyof T): React.ForwardRefExoticComponent<React.PropsWithoutRef<T> & React.RefAttributes<HTMLElement>>;
+import React from 'react';
+export declare type I18NProperty = {
+    [key: string]: string | any[] | undefined;
+    args?: any[];
+};
+export declare type I18NComponentProps = {
+    i18n?: string | I18NProperty | I18NProperty[];
+};
+export declare function withI18N<P extends I18NComponentProps>(Component: React.FC<P>): React.FC<P>;

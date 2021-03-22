@@ -1,56 +1,51 @@
-import React, { forwardRef, FC, ReactNode } from "react";
-import { useI18N } from "./I18NProvider";
-import { transform } from "./Markdown";
+import React, {forwardRef, RefAttributes} from 'react';
+import {useI18N} from "./I18NProvider";
 
-/**
- * Add i18n support to the specified component. This HOC allow you declare
- * a property on your component which refernces a key on the `LanguageBundle` currently
- * declared in the closest `I18NProvider`. The key is left down to the caller and should
- * be specified as `propName`.
- *
- * Example:
- *
- * ```
- * <RegularText>Hello</Regular>
- *
- * const I18NText = withI18N(RegularText, "labelFrom")
- *
- * ...
- *
- * <I18NProvider bundles={bundles} lang="en">
- *  <I18NText labelFrom="hello"/>
- * </I18NProvider/>
- *
- *```
- *
- * @param Component the component to wrap
- * @param propName the name of the property which can contain the key which maps
- * to the I18N bundle
- */
-export function withI18N<T>(Component: FC<T>, propName: keyof T) {
-  return forwardRef<HTMLElement, T>((props, ref) => {
-    const { bundle, markdownRules } = useI18N();
-    let hocProps = props;
-    if (bundle && props[propName]) {
-      const value = props[propName] as any;
-      let children: ReactNode | ReactNode[] = "";
-      if (value.constructor === Array) {
-        const [label, ...args] = value;
-        if (bundle[label]) {
-          children = (bundle[label] as Function)(...args);
-        }
+export type I18NProperty = {
+  [key: string]: string | any[] | undefined;
+  args?: any[];
+};
+
+export type I18NComponentProps = {
+  i18n?: string | I18NProperty | I18NProperty[];
+};
+
+//TODO fix typings
+export function withI18N<P extends I18NComponentProps>(Component: React.FC<P>): React.FC<P> {
+  return forwardRef<HTMLElement, P>((props, ref) => {
+    const next = rewriteI18NProps(props);
+    // @ts-ignore
+    return <Component {...next} ref={ref} />;
+  }) as unknown as React.FC<P>
+};
+
+const rewriteI18NProps = (props: I18NComponentProps) => {
+  let { i18n = '', ...rest } = props;
+  if (!i18n) return props;
+  const { bundle } = useI18N();
+  toArray(i18n).forEach((property) => {
+    const { args = [], ...other } = property;
+    const key = Object.keys(other)[0];
+    const value = bundle[(property as any)[key]];
+    if (value) {
+      if (typeof value === 'string') {
+        (rest as any)[key] = value;
       } else {
-        children = bundle[value] as string;
-        if (!children) {
-          // eslint-disable-next-line no-console
-          console.warn(`No i18n value found for key: ${value}`);
-        }
-      }
-      if (children) {
-        children = transform(children as string, markdownRules);
-        hocProps = { ...props, children };
+        (rest as any)[key] = (value as Function)(...args);
       }
     }
-    return <Component {...hocProps} ref={ref} />;
   });
-}
+  return rest;
+};
+
+const toArray = (
+  i18n?: string | I18NProperty | I18NProperty[]
+): I18NProperty[] => {
+  if (typeof i18n === 'string') {
+    return [{ children: i18n }];
+  } else if (Array.isArray(i18n)) {
+    return i18n;
+  } else {
+    return [i18n as I18NProperty];
+  }
+};

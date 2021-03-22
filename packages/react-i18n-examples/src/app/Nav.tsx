@@ -13,12 +13,12 @@ export const Nav = (props: Props) => {
   const { language, onChangeLanguage } = props;
   return (
     <Container>
-      <Title label="brand" />
+      <Title i18n="brand"  />
       <Link to="/home">
-        <Text label="home" />
+        <Text i18n="home" />
       </Link>
       <Link to="/about">
-        <Text label="about" />
+        <Text i18n="about" />
       </Link>
       <LanguageSelect language={language} onChangeLanguage={onChangeLanguage} />
     </Container>

@@ -1,4 +1,4 @@
-import { LanguageBundle, LanguageBundleSet } from "@mpkelly/react-i18n";
+import {LanguageBundleSet} from "@mpkelly/react-i18n";
 
 export const RootLanguageBundle: LanguageBundleSet = {
   corporate: async () => ({

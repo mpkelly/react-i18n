@@ -6,9 +6,10 @@ import { Text, Title } from "../components/Text";
 export default () => {
   return (
     <I18NProvider bundles={AboutLanguageBundle}>
-      <Title label="intro" />
-      <Text label="summary1" />
-      <Text label="summary2" />
+      <Title i18n={"intro"} />
+      <Text i18n="summary1" />
+      <Text i18n="summary2" />
+      <Text i18n={{children:"intro"}}/>
     </I18NProvider>
   );
 };
