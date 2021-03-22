@@ -9,7 +9,7 @@ export default () => {
       <Title i18n="intro" />
       <Text i18n="summary1" />
       <Text i18n="summary2" />
-      <Text i18n={{children:"variable", args:[3npx n]}}/>
+      <Text i18n={{children:"variable", args:[3]}}/>
     </I18NProvider>
   );
 };
