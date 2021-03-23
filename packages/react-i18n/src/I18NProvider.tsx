@@ -102,7 +102,7 @@ export const I18NProvider: FC<I18NProviderProps> = (
         }),
         new Promise<LanguageBundle>((resolve) => {
           if (bundles && bundles[lang]) {
-            bundles[lang]().then(resolve);
+            bundles[lang]().then(flatten).then((resolve));
           } else {
             resolve({});
           }
@@ -140,3 +140,22 @@ export const I18NProvider: FC<I18NProviderProps> = (
 I18NProvider.defaultProps = {
   markdownRules: DefaultMarkdownRules
 };
+
+const flatten = (object:any) => {
+  const result:LanguageBundle = {};
+
+  for (let i in object) {
+    if (!object.hasOwnProperty(i)) continue;
+
+    if ((typeof object[i]) == 'object' && object[i] !== null) {
+      const flat = flatten(object[i]);
+      for (let x in flat) {
+        if (!flat.hasOwnProperty(x)) continue;
+        result[i + '.' + x] = flat[x];
+      }
+    } else {
+      result[i] = object[i];
+    }
+  }
+  return result;
+}

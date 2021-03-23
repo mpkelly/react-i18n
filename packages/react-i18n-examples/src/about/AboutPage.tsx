@@ -10,6 +10,7 @@ export default () => {
       <Text i18n="summary1" />
       <Text i18n="summary2" />
       <Text i18n={{children:"intro"}}/>
+      <Text i18n={"nested.value"}/>
     </I18NProvider>
   );
 };

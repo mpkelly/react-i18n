@@ -6,11 +6,17 @@ export const RootLanguageBundle: LanguageBundleSet = {
     home: "Home",
     about: "About",
     changeLanguage: "change language",
+    nested: {
+      value: "Root corporate value",
+    }
   }),
   lorem: async () => ({
     brand: "Acme Inc",
     home: "Lorem",
     about: "Ipsum",
     changeLanguage: "change language",
+    nested: {
+      value: "Root lorem value",
+    }
   }),
 };

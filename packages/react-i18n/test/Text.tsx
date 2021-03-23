@@ -1,5 +1,6 @@
 import React from "react";
-import { withI18N } from "../src/withI18N";
+import { withI18N } from "../src";
+import {I18NComponentProps} from "../dist";
 
 type TextProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLParagraphElement>,
@@ -7,5 +8,4 @@ type TextProps = React.DetailedHTMLProps<
 >;
 const Text = (props: TextProps) => <p {...props} />;
 
-type I18NTextProps = TextProps & { label?: string | any[] };
-export const I18NText = withI18N<I18NTextProps>(Text, "label");
+export const I18NText = withI18N<TextProps & I18NComponentProps>(Text);

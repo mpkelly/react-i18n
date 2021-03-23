@@ -1,18 +1,28 @@
 import React, { useState, Suspense, lazy } from "react";
 import ReactDOM from "react-dom";
-import { I18NProvider } from "../src/I18NProvider";
-import { LanguageBundleSet } from "../src/LanguageBundleSet";
-import { LanguageBundle } from "../src/LanguageBundle";
+import { I18NProvider } from "../src";
+import { LanguageBundleSet } from "../src";
+import { LanguageBundle } from "../src";
 import { I18NText } from "./Text";
 
 const a: LanguageBundle = {
   1: "a1",
-  2: "b2"
+  2: "b2",
+  5: {
+    1: {
+      a:"a51a"
+    }
+  }
 };
 
 const b: LanguageBundle = {
   1: "b1",
-  2: "b2"
+  2: "b2",
+  5: {
+    1: {
+      a:"b51a"
+    }
+  }
 };
 
 const root: LanguageBundleSet = {
@@ -37,7 +47,8 @@ export const App = () => {
 
   return (
     <I18NProvider lang={lang} bundles={root}>
-      <I18NText label="1" id="t1" />
+      <I18NText i18n="1" id="t1" />
+      <I18NText i18n={"5.1.a"} id="t5" />
       <button onClick={handleToggleLang} id="toggleLang">
         toggle lang
       </button>
@@ -50,5 +61,6 @@ export const App = () => {
     </I18NProvider>
   );
 };
+
 
 ReactDOM.render(<App />, document.getElementById("app"));
